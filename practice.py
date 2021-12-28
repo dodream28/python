@@ -1,25 +1,27 @@
-#print("a" + "b")
-#print("a", "b")
+"""
+Quiz ) 사이트별로 비밀번호를 만들어 주는 프로그램을 작성하시오
 
-# 방법 1
-print("나는 %d살입니다." % 20)
-print("나는 %s을 좋아해요." % "Python" )
-print("Apple 은 %c로 시작해요." % "A")
-# %s
-print("나는 %s살입니다." % 20)
-print("나는 %s색과 %s색을 좋아해요." % ("파란", "빨간"))
+예) http://naver.com
+규칙1 : http:// 부분은 제외 => naver.com
+규칙2 : 처음 만나는 점(.) 이후 부분은 제외 => naver
+규칙3 : 남은 글자 중 처음 세자리 + 글자 갯수 + 글자 내 'e' 갯수 + "!"로 구성
 
-# 방법 2
-print("나는 {}살입니다.".format(20))
-print("나는 {}색과 {}색을 좋아해요".format("파란", "빨간"))
-print("나는 {0}색과 {2}색을 좋아해요".format("파란", "빨간", "노랑"))
-print("나는 {1}색과 {0}색을 좋아해요".format("파란", "빨간", "노랑"))
+                (nav)               (5)             (1)         (!)   
 
-# 방법 3
-print("나는 {age}살이며, {color}색을 좋아해요.".format(age= 20, color="빨간"))
-print("나는 {age}살이며, {color}색을 좋아해요.".format(color="빨간", age=20))
+예) 생성된 비밀번호 : nav51!
 
-# 방법 4
-age = 20
-color = "빨간"
-print(f"나는 {age}살이며, {color}색을 좋아해요.")
+"""
+
+url = "http://naver.com"
+
+my_str = url.replace("http://", "")
+
+my_str = my_str[:my_str.index(".")]
+
+len = len(my_str)
+lang = my_str[0:3]
+enumber = my_str.count("e")
+
+password = str(lang) + str(len) + str(enumber) + "!"
+
+print("{} 의 비밀번호는 {} 입니다.".format(url, password))
