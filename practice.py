@@ -1,39 +1,15 @@
-# cabinet = {3:"유재석", 100:"김태호"}
-# print(cabinet[3])
-# print(cabinet[100])
+menu = ("돈까스", "치즈까스")
+print(menu[0])
+print(menu[1])
 
-# print(cabinet.get(3))
-# print(cabinet.get(5))
-# print("hi")
+# menu.add("생선까스")
 
-# print(3 in cabinet) 
-# print(5 in cabinet)
+# name = "김종국"
+# age = 20
+# hobby = "코딩"
+# print(name, age, hobby)
 
-cabinet = {"A-3":"유재석", "B-100":"김태호"}
-print(cabinet["A-3"])
-print(cabinet["B-100"])
+(name, age, hobby) = ("김종국", 20, "코딩")
+# name, age, hobby = "김종국", 20, "코딩"
 
-# 새 손님
-
-print(cabinet)
-cabinet["A-3"] = "김종국"
-cabinet["B-100"] = "조세호"
-print(cabinet)
-
-# 간 손님
-del cabinet["A-3"]
-print(cabinet)
-
-
-# key 들만 출력
-print(cabinet.keys())
-
-# value 들만 출력
-print(cabinet.values())
-
-#key, value 쌍으로 출력
-print(cabinet.items())
-
-# 목욕탕 페점
-cabinet.clear()
-print(cabinet)
+print(name, age, hobby)
