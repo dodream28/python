@@ -1,35 +1,25 @@
-"""
-Quiz) 당신은 Cocoa 서비스를 이용하는 택시 기사입니다.
-50명의 승객과 매칭 기회가 있을 때, 총 탑승 승객 수를 구하는 프로그램을 작성하시오.
+def open_account():
+    print("새로운 계좌가 생성되었습니다.")
 
-조건1 : 승객별 운행 소요 시간은 5분 ~ 50분 사이의 난수로 정해집니다.
-조건2 : 당신은 소요 시간 5분 ~ 15분 사이의 승객만 매칭해야 합니다.
+def deposit(balance, money):
+    print("입금이 완료되었습니다. 잔액은 {0} 원입니다.".format(balance + money))
+    return balance + money
 
-(출력문 예제)
-[0] 1번째 손님 (소요시간 : 15분)
-[] 2번째 손님 ( 소요시간 : 50분)
-[0] 3번째 손님 (소요시간 : 5분)
-...
-[] 50번째 손님 ( 소요시간 : 16분)
+balance = 0 # 잔액
+balance = deposit(balance, 1000)
+print(balance)
 
-총 탑승 승객 : 2 분
-
-"""
-from random import *
-
-time = range(5, 51)
-Pick = []
-
-for i in range(1, 51):
-    timeset = sample(time, 1)
-    mit = timeset[0]
-    if 5 <= mit <16 :
-        Pick.append("pickup")
-        print("[0] {}번째 손님 (소요시간 : {}분)".format(i, mit))
-
+def withdraw(balance, money): #출금
+    if balance >- money: # 잔액이 출금보다 많으면
+        print("출금이 완료되었습니다. 잔액은 {0} 원입니다.".format(balance - money))
+        return balance - money
     else :
-        print("[] {}번째 손님 (소요시간 : {}분)".format(i, mit))
+        print("출금이 완료되지 않았습니다. 잔액은 {0} 원입니다.".format(balance))
+        return balance
 
-    if i == 50 :
-        print("총 탑승 승객 : {}명".format(len(Pick)))
-# print("총 탑승 승객 : {}분".format())
+def withdraw_night(balance, money): #저녁에 출금
+    commission = 100 # 수수료 100원
+    return commission, balance - money - commission
+
+commission, balance = withdraw_night(balance, 500)
+print("수수료 {0} 원이며, 잔액은 {1} 원입니다.".format(commission, balance))
